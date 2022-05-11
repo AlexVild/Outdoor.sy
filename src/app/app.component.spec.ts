@@ -39,12 +39,13 @@ describe('AppComponent', () => {
 		expect(customerTableComponent.customers).toEqual([]);
 	});
 
-	it('when the customer upload button is pressed, we populate the customers property using the file reader service', () => {
+	it('when the customer upload button is pressed, we populate the customers property using the file reader service', fakeAsync(() => {
 		const uploadButton = fixture.debugElement.nativeElement.querySelector('#customer-upload') as HTMLInputElement;
 		const customerTableComponent = fixture.debugElement.query(By.css('customer-table')).componentInstance as CustomerTableComponent;
 
 		uploadButton.dispatchEvent(new Event('change'));
+		tick();
 		fixture.detectChanges();
 		expect(customerTableComponent.customers).toEqual(TestUtils.getMockCustomers());
-	});
+	}));
 });

@@ -16,11 +16,10 @@ export class AppComponent {
 		this.customers = [];
 	}
 
-	readCustomerFile(event: any) {
+	async readCustomerFile(event: any) {
 		// We only care about the first file selected
 		try {
-			console.log(event.target.files[0]);
-			this.customers = this.fileReaderService.readFile(event.target.files[0] as File);	
+			this.customers = await this.fileReaderService.readFile(event.target.files[0] as File);	
 		} catch(e) {
 			// for the sake of time, simply log the error here
 			console.log(e);
