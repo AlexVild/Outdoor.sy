@@ -39,6 +39,12 @@ describe('CustomerTableComponent', () => {
   
 				expect(noCustomerElement.textContent).toContain('You must first upload a customer list to view customer data.');
 			});
+
+			it('sort options are not visible', () => {
+				const sortElements = fixture.nativeElement.querySelector('.sort-options');
+  
+				expect(sortElements).toBeFalsy();
+			});
 		});
 	});
 
@@ -73,6 +79,39 @@ describe('CustomerTableComponent', () => {
 					expect(fixture.nativeElement.querySelector(`#vehicle-type-${i}`).textContent).toBe(`${mockCustomers[i].vehicle.type}`);
 					expect(fixture.nativeElement.querySelector(`#vehicle-name-${i}`).textContent).toBe(`${mockCustomers[i].vehicle.name}`);
 					expect(fixture.nativeElement.querySelector(`#vehicle-length-${i}`).textContent).toBe(`${mockCustomers[i].vehicle.length} ft.`);
+				}
+			});
+		});
+
+		describe('sorting', () => {
+			it('clicking vehicle sort sorts table by vehicle', () => {
+				const vehicleSort = fixture.nativeElement.querySelector('#vehicle-sort') as HTMLInputElement;
+				vehicleSort.dispatchEvent(new Event('click'));
+				fixture.detectChanges();
+
+				for (let i = 0; i < mockCustomers.length - 1; i++) {
+					const greaterVal: string = fixture.nativeElement.querySelector(`#vehicle-type-${i}`).textContent;
+					const lesserVal: string = fixture.nativeElement.querySelector(`#vehicle-type-${i + 1}`).textContent;
+
+					expect(greaterVal.localeCompare(lesserVal)).toBe(-1);
+				}
+			});
+
+			it('clicking full name sort sorts table by vehicle', () => {
+				const vehicleSort = fixture.nativeElement.querySelector('#name-sort') as HTMLInputElement;
+				vehicleSort.dispatchEvent(new Event('click'));
+				fixture.detectChanges();
+
+				for (let i = 0; i < mockCustomers.length - 1; i++) {
+					const greaterFirstName: string = fixture.nativeElement.querySelector(`#first-name-${i}`).textContent;
+					const greaterLastName: string = fixture.nativeElement.querySelector(`#last-name-${i}`).textContent;
+					const lesserFirstName: string = fixture.nativeElement.querySelector(`#first-name-${i + 1}`).textContent;
+					const lesserLastName: string = fixture.nativeElement.querySelector(`#last-name-${i + 1}`).textContent;
+
+					const greaterName = `${greaterFirstName} ${greaterLastName}`;
+					const lesserName = `${lesserFirstName} ${lesserLastName}`;
+
+					expect(greaterName.localeCompare(lesserName)).toBe(-1);
 				}
 			});
 		});

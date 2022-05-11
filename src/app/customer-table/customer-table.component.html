@@ -6,24 +6,6 @@
     </div>
 
     <ng-template #customer_table>
-        <div class="dropdown block">
-            <div class="dropdown-trigger">
-                <button class="button" aria-haspopup="true" aria-controls="sort-type">
-                    <span>Select Sort</span>
-                    <span style="padding-left: 10px;"><fa-icon [icon]="faAngleDown"></fa-icon></span>
-                  </button> 
-            </div>
-            <div class="dropdown-menu" id="sort-type" role="menu">
-                <div class="dropdown-content">
-                    <a href="#" class="dropdown-item">
-                        Vehicle Type
-                    </a>
-                    <a href="#" class="dropdown-item">
-                        Full Name
-                    </a>
-                </div>
-            </div>
-        </div>
         <table *ngIf="customers" class="table is-striped is-fullwidth customer-table">
             <tr class="customer-table-header">
                 <th>First Name</th>
@@ -42,5 +24,18 @@
                 <td [attr.id]="'vehicle-length-' + i">{{ customer.vehicle.length }} ft.</td>
             </tr>
         </table>
+        <div class="block sort-options">
+            <div>Sort Type</div>
+            <div class="control">
+                <label class="radio">
+                  <input type="radio" id="vehicle-sort" name="sort" (click)="sortCustomers(SortType.VEHICLE)">
+                  Vehicle Type
+                </label>
+                <label class="radio">
+                  <input type="radio" id="name-sort" name="sort" (click)="sortCustomers(SortType.FULL_NAME)">
+                  Full Name
+                </label>
+            </div>
+        </div>
     </ng-template>
 </div>

@@ -3,7 +3,7 @@ import { Customer } from 'src/app/customer-table/customer';
 export class TestUtils {
 	static getMockCustomers(): Customer[] {
 		return [{
-			firstName: 'Alex',
+			firstName: 'Jeff',
 			lastName: 'Vild',
 			email: 'ajv2324@gmail.com',
 			vehicle: {
@@ -12,7 +12,7 @@ export class TestUtils {
 				length: 15
 			}
 		}, {
-			firstName: 'Jeff',
+			firstName: 'Alex',
 			lastName: 'Vild',
 			email: 'jsvild@gmail.com',
 			vehicle: {
