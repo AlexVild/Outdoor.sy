@@ -97,9 +97,9 @@ describe('CustomerTableComponent', () => {
 				}
 			});
 
-			it('clicking full name sort sorts table by vehicle', () => {
-				const vehicleSort = fixture.nativeElement.querySelector('#name-sort') as HTMLInputElement;
-				vehicleSort.dispatchEvent(new Event('click'));
+			it('clicking full name sort sorts table by first and last names', () => {
+				const nameSort = fixture.nativeElement.querySelector('#name-sort') as HTMLInputElement;
+				nameSort.dispatchEvent(new Event('click'));
 				fixture.detectChanges();
 
 				for (let i = 0; i < mockCustomers.length - 1; i++) {
