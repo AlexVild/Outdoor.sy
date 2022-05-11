@@ -44,30 +44,40 @@ describe('CustomerTableComponent', () => {
 		expect(component).toBeTruthy();
 	});
 
-	describe('the customer table', () => {
-		it('should not be visible when there are no valid customers loaded into the component', () => {
-			const noCustomerElement = fixture.nativeElement.querySelector('.no-customers-message');
-			const customerTable = fixture.nativeElement.querySelector('.customer-table');
-
-			expect(noCustomerElement).toBeTruthy();
-			expect(customerTable).toBeFalsy();
+	describe('when there are no customers', () => {
+		describe('the customer table', () => {
+			it('should not be visible when there are no valid customers loaded into the component', () => {
+				const customerTable = fixture.nativeElement.querySelector('.customer-table');
+				
+				expect(customerTable).toBeFalsy();
+			});
+  
+			it('should display an error message when no customers are loaded into the component', () => {
+				const noCustomerElement = fixture.nativeElement.querySelector('.no-customers-message');
+  
+				expect(noCustomerElement.textContent).toContain('You must first upload a customer list to view customer data.');
+			});
 		});
+	});
 
-		it('should be visible when customers are given to the component', () => {
+	describe('when there are customers', () => {
+		beforeEach(() => {
 			component.customers = mockCustomers;
 			fixture.detectChanges();
-
-			const noCustomerElement = fixture.nativeElement.querySelector('.no-customers-message');
-			const customerTable = fixture.nativeElement.querySelector('.customer-table');
-
-			expect(customerTable).toBeTruthy();
-			expect(noCustomerElement).toBeFalsy();
 		});
 
-		it('should display an error message when no customers are loaded into the component', () => {
-			const noCustomerElement = fixture.nativeElement.querySelector('.no-customers-message');
+		describe('the customer table', () => {
+			it('should be visible when customers are given to the component', () => {
+				const customerTable = fixture.nativeElement.querySelector('.customer-table');
+  
+				expect(customerTable).toBeTruthy();
+			});
 
-			expect(noCustomerElement.textContent).toContain('You must first upload a customer list to view customer data.');
+			it('should not display the "no customers" error', () => {
+				const noCustomerElement = fixture.nativeElement.querySelector('.no-customers-message');
+        
+				expect(noCustomerElement).toBeFalsy();
+			});
 		});
 	});
 });
