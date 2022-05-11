@@ -7,15 +7,9 @@ import { Customer } from './customer';
 	templateUrl: './customer-table.component.html',
 	styleUrls: ['./customer-table.component.css']
 })
-export class CustomerTableComponent implements OnInit {
+export class CustomerTableComponent {
 	faAngleDown = faAngleDown;
 
 	@Input()
 	public customers?: Customer[];
-
-	constructor() { }
-
-	ngOnInit(): void {
-	}
-
 }

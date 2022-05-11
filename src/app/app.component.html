@@ -5,12 +5,26 @@
             <h1 class="title has-text-centered">Outdoor.sy</h1>
             <h2 class="subtitle has-text-centered">It's an app of some sort!</h2>
             <div class="block has-text-centered">
-                Please <a class="has-text-primary-dark" href="">upload <fa-icon style="padding-right: 3px" [icon]="faUpload"></fa-icon></a> your pipe or comma-separated customer data.
+              Please upload your pipe or comma-separated customer data.
             </div>
+
+            <div class="file is-primary is-centered">
+              <label class="file-label">
+                <input id="customer-upload" (change)="readCustomerFile($event)" class="file-input" type="file" name="customerList">
+                <span class="file-cta">
+                  <span class="file-icon">
+                    <fa-icon style="padding-right: 3px" [icon]="faUpload"></fa-icon>
+                  </span>
+                  <span class="file-label">
+                    Choose a customer file...
+                  </span>
+                </span>
+              </label>
+            </div>
+
             <div class="block">
-                
+              <customer-table [customers]="customers"></customer-table>
             </div>
-            <customer-table></customer-table>
         </div>
     </body>
 </html>

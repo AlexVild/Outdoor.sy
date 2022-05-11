@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TestUtils } from 'src/test-util/mock-customers';
 import { Customer } from './customer';
 
 import { CustomerTableComponent } from './customer-table.component';
@@ -6,25 +7,7 @@ import { CustomerTableComponent } from './customer-table.component';
 describe('CustomerTableComponent', () => {
 	let component: CustomerTableComponent;
 	let fixture: ComponentFixture<CustomerTableComponent>;
-	const mockCustomers: Customer[] = [{
-		firstName: 'Alex',
-		lastName: 'Vild',
-		email: 'ajv2324@gmail.com',
-		vehicle: {
-			type: 'Kia',
-			name: 'Soul',
-			length: 15
-		}
-	}, {
-		firstName: 'Jeff',
-		lastName: 'Vild',
-		email: 'jsvild@gmail.com',
-		vehicle: {
-			type: 'Ford',
-			name: 'Taurus',
-			length: 18
-		}
-	}];
+	const mockCustomers: Customer[] = TestUtils.getMockCustomers();
 
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({

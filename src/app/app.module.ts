@@ -6,15 +6,15 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CustomerTableComponent } from './customer-table/customer-table.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    CustomerTableComponent
-  ],
-  imports: [
-    BrowserModule,
-    FontAwesomeModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+	declarations: [
+		AppComponent,
+		CustomerTableComponent
+	],
+	imports: [
+		BrowserModule,
+		FontAwesomeModule
+	],
+	providers: [],
+	bootstrap: [AppComponent]
 })
 export class AppModule { }
