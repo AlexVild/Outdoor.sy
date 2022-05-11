@@ -83,19 +83,14 @@ describe('CustomerTableComponent', () => {
 
 				expect(customerRows.length).toBe(mockCustomers.length);
         
-				expect(fixture.nativeElement.querySelector('#first-name-0').textContent).toBe('Alex');
-				expect(fixture.nativeElement.querySelector('#last-name-0').textContent).toBe('Vild');
-				expect(fixture.nativeElement.querySelector('#email-0').textContent).toBe('ajv2324@gmail.com');
-				expect(fixture.nativeElement.querySelector('#vehicle-type-0').textContent).toBe('Kia');
-				expect(fixture.nativeElement.querySelector('#vehicle-name-0').textContent).toBe('Soul');
-				expect(fixture.nativeElement.querySelector('#vehicle-length-0').textContent).toBe('15 ft.');
-
-				expect(fixture.nativeElement.querySelector('#first-name-1').textContent).toBe('Jeff');
-				expect(fixture.nativeElement.querySelector('#last-name-1').textContent).toBe('Vild');
-				expect(fixture.nativeElement.querySelector('#email-1').textContent).toBe('jsvild@gmail.com');
-				expect(fixture.nativeElement.querySelector('#vehicle-type-1').textContent).toBe('Ford');
-				expect(fixture.nativeElement.querySelector('#vehicle-name-1').textContent).toBe('Taurus');
-				expect(fixture.nativeElement.querySelector('#vehicle-length-1').textContent).toBe('18 ft.');
+				for(let i = 0; i < mockCustomers.length; i++){ 
+					expect(fixture.nativeElement.querySelector(`#first-name-${i}`).textContent).toBe(`${mockCustomers[i].firstName}`);
+					expect(fixture.nativeElement.querySelector(`#last-name-${i}`).textContent).toBe(`${mockCustomers[i].lastName}`);
+					expect(fixture.nativeElement.querySelector(`#email-${i}`).textContent).toBe(`${mockCustomers[i].email}`);
+					expect(fixture.nativeElement.querySelector(`#vehicle-type-${i}`).textContent).toBe(`${mockCustomers[i].vehicle.type}`);
+					expect(fixture.nativeElement.querySelector(`#vehicle-name-${i}`).textContent).toBe(`${mockCustomers[i].vehicle.name}`);
+					expect(fixture.nativeElement.querySelector(`#vehicle-length-${i}`).textContent).toBe(`${mockCustomers[i].vehicle.length} ft.`);
+				}
 			});
 		});
 	});
