@@ -1,10 +1,31 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Customer } from './customer';
 
 import { CustomerTableComponent } from './customer-table.component';
 
 describe('CustomerTableComponent', () => {
 	let component: CustomerTableComponent;
 	let fixture: ComponentFixture<CustomerTableComponent>;
+	const mockCustomers: Customer[] = [{
+		firstName: 'Alex',
+		lastName: 'Vild',
+		email: 'ajv2324@gmail.com',
+		vehicle: {
+			type: 'Kia',
+			name: 'Soul',
+			length: 15
+		}
+	}, {
+		firstName: 'Jeff',
+		lastName: 'Vild',
+		email: 'jsvild@gmail.com',
+		vehicle: {
+			type: 'Ford',
+			name: 'Taurus',
+			length: 18
+		}
+	},
+	];
 
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
@@ -33,6 +54,9 @@ describe('CustomerTableComponent', () => {
 		});
 
 		it('should be visible when customers are given to the component', () => {
+			component.customers = mockCustomers;
+			fixture.detectChanges();
+
 			const noCustomerElement = fixture.nativeElement.querySelector('.no-customers-message');
 			const customerTable = fixture.nativeElement.querySelector('.customer-table');
 
