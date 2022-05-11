@@ -1,5 +1,5 @@
 <div class="customers">
-    <div *ngIf="!customers || customers.length < 0; else customer_table">
+    <div *ngIf="!customers || customers.length <= 0; else customer_table">
         <div class="block has-text-centered no-customers-message">
             You must first upload a customer list to view customer data.
         </div>
