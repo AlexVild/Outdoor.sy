@@ -33,6 +33,14 @@
                 <th>Vehicle Name</th>
                 <th>Vehicle Length (feet)</th>
             </tr>
+            <tr *ngFor="let customer of customers; index as i" class="customer-row">
+                <td [attr.id]="'first-name-' + i">{{ customer.firstName }}</td>
+                <td [attr.id]="'last-name-' + i">{{ customer.lastName }}</td>
+                <td [attr.id]="'email-' + i">{{ customer.email }}</td>
+                <td [attr.id]="'vehicle-type-' + i">{{ customer.vehicle.type }}</td>
+                <td [attr.id]="'vehicle-name-' + i">{{ customer.vehicle.name }}</td>
+                <td [attr.id]="'vehicle-length-' + i">{{ customer.vehicle.length }} ft.</td>
+            </tr>
         </table>
     </ng-template>
 </div>

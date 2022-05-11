@@ -16,7 +16,6 @@ export class CustomerTableComponent implements OnInit {
 	constructor() { }
 
 	ngOnInit(): void {
-		
 	}
 
 }

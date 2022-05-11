@@ -88,14 +88,14 @@ describe('CustomerTableComponent', () => {
 				expect(fixture.nativeElement.querySelector('#email-0').textContent).toBe('ajv2324@gmail.com');
 				expect(fixture.nativeElement.querySelector('#vehicle-type-0').textContent).toBe('Kia');
 				expect(fixture.nativeElement.querySelector('#vehicle-name-0').textContent).toBe('Soul');
-				expect(fixture.nativeElement.querySelector('#vehicle-size-0').textContent).toBe('15 ft.');
+				expect(fixture.nativeElement.querySelector('#vehicle-length-0').textContent).toBe('15 ft.');
 
 				expect(fixture.nativeElement.querySelector('#first-name-1').textContent).toBe('Jeff');
 				expect(fixture.nativeElement.querySelector('#last-name-1').textContent).toBe('Vild');
 				expect(fixture.nativeElement.querySelector('#email-1').textContent).toBe('jsvild@gmail.com');
 				expect(fixture.nativeElement.querySelector('#vehicle-type-1').textContent).toBe('Ford');
 				expect(fixture.nativeElement.querySelector('#vehicle-name-1').textContent).toBe('Taurus');
-				expect(fixture.nativeElement.querySelector('#vehicle-size-1').textContent).toBe('17 ft.');
+				expect(fixture.nativeElement.querySelector('#vehicle-length-1').textContent).toBe('18 ft.');
 			});
 		});
 	});
