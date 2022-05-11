@@ -24,17 +24,12 @@
                 <td [attr.id]="'vehicle-length-' + i">{{ customer.vehicle.length }} ft.</td>
             </tr>
         </table>
-        <div class="block sort-options">
-            <div>Sort Type</div>
-            <div class="control">
-                <label class="radio">
-                  <input type="radio" id="vehicle-sort" name="sort" (click)="sortCustomers(SortType.VEHICLE)">
-                  Vehicle Type
-                </label>
-                <label class="radio">
-                  <input type="radio" id="name-sort" name="sort" (click)="sortCustomers(SortType.FULL_NAME)">
-                  Full Name
-                </label>
+        <div class="block sort-options columns is-centered has-text-centered">
+            <div class="column">
+                <button class="button is-info" (click)="sortCustomers(SortType.VEHICLE)">Vehicle Type Sort</button>
+            </div>
+            <div class="column">
+                <button class="button is-info" (click)="sortCustomers(SortType.FULL_NAME)">Full Name Sort</button>
             </div>
         </div>
     </ng-template>
